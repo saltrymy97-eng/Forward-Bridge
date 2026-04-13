@@ -89,6 +89,7 @@ def start_quiz(methodology_name):
             json_end = response.rfind('}') + 1
             if json_start != -1 and json_end != 0:
                 json_str = response[json_start:json_end]
+                json_str = json_str.replace("'", '"')
                 quiz_data, _ = json.JSONDecoder().raw_decode(json_str)
                 st.session_state.quiz_questions = quiz_data['questions']
                 st.session_state.quiz_current = 0
