@@ -42,7 +42,7 @@ def get_ai_response(user_question, context, is_test=False):
                 {"role": "system", "content": system_msg},
                 {"role": "user", "content": user_msg},
             ],
-            model="llama-3.1-8b-instant",
+            model="llama3-70b-8192",
             temperature=0.7,
             max_tokens=1024,
             top_p=1,
