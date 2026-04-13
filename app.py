@@ -93,11 +93,12 @@ def start_quiz(methodology_name):
                 st.session_state.quiz_questions = quiz_data['questions']
                 st.session_state.quiz_current = 0
                 st.session_state.quiz_answers = [None] * len(quiz_data['questions'])
-                st.session_state.quiz_active = True
-                st.session_state.quiz_finished = False
-                st.success("✅ تم توليد الاختبار بنجاح!")
-            else:
-                st.error("❌ لم يتمكن الذكاء الاصطناعي من توليد اختبار بصيغة صحيحة. حاول مرة أخرى.")
+                    st.session_state.quiz_active = True
+    st.session_state.quiz_finished = False
+    st.success("✅ تم توليد الاختبار بنجاح!")
+    st.rerun()
+else:
+    st.error("❌ لم يتمكن الذكاء الاصطناعي من توليد اختبار بصيغة صحيحة. حاول مرة أخرى.")
                 st.session_state.quiz_active = False
         except Exception as e:
             st.error(f"❌ خطأ في معالجة الاختبار: {e}")
